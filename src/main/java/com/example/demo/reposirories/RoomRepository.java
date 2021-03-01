@@ -1,7 +1,7 @@
 package com.example.demo.reposirories;
 
-import com.example.demo.model.RoomModel;
+import com.example.demo.model.RoomEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface RoomRepository extends CrudRepository<RoomModel, Long> {
+public interface RoomRepository extends CrudRepository<RoomEntity, Long> {
 }

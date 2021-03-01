@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "room")
 @Data
-public class RoomModel {
+public class RoomEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -19,8 +19,9 @@ public class RoomModel {
     Date checkDown;
 
     @OneToMany(mappedBy = "roomModel", fetch = FetchType.LAZY)
-    Set<ReservModel>reservModelSet;
+    Set<ReservedEntity> reservedEntitySet;
 
-    @ManyToMany(mappedBy = "roomModelList", fetch = FetchType.EAGER)
-    List<GuestModel>guestModelList;
+
+    @ManyToMany(mappedBy = "roomEntityList", fetch = FetchType.EAGER)
+    List<FacilitiesEntity>facilitiesEntityList;
 }
