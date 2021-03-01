@@ -15,11 +15,5 @@ public class RoleEntity {
     String name;
 
     @ManyToMany(mappedBy = "roleEntityList", fetch = FetchType.EAGER)
-            @JoinTable(
-                    schema = "public",
-                    name = "user_role",
-                    joinColumns = @JoinColumn(name = "role_id"),
-                    inverseJoinColumns = @JoinColumn(name = "user_id")
-            )
     List<UserEntity>userEntityList;
 }

@@ -18,7 +18,7 @@ public class RoomEntity {
     Date checkIn;
     Date checkDown;
 
-    @OneToMany(mappedBy = "roomModel", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "roomEntity", fetch = FetchType.LAZY)
     Set<ReservedEntity> reservedEntitySet;
 
 

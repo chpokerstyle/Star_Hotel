@@ -22,6 +22,12 @@ public class UserEntity {
     @OneToOne
     ReservedEntity reservedEntity;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            schema = "public",
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     List<RoleEntity>roleEntityList;
 }
