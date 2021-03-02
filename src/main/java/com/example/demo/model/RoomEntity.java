@@ -19,7 +19,7 @@ public class RoomEntity {
     Date checkDown;
 
     @OneToMany(mappedBy = "roomEntity", fetch = FetchType.LAZY)
-    Set<ReservedEntity> reservedEntitySet;
+    Set<ReservationEntity> reservationEntitySet;
 
 
     @ManyToMany(mappedBy = "roomEntityList", fetch = FetchType.EAGER)

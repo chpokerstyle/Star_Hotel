@@ -19,10 +19,10 @@ public class UserEntity {
     String number;
     String email;
 
-    @OneToOne
-    ReservedEntity reservedEntity;
+    @OneToMany(fetch = FetchType.EAGER)
+    List<ReservationEntity>reservationEntityList;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             schema = "public",
             name = "user_role",

@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "reserved")
 @Data
-public class ReservedEntity {
+public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -15,6 +15,6 @@ public class ReservedEntity {
     @ManyToOne(targetEntity = RoomEntity.class, fetch = FetchType.LAZY)
     RoomEntity roomEntity;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     UserEntity userEntity;
 }
