@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.DTO.modelDTO.RoomDTO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,4 +22,7 @@ public class FacilitiesEntity {
                     inverseJoinColumns = @JoinColumn(name = "room_id")
             )
     List<RoomEntity>roomEntityList;
+
+    public void setRoomEntityList(List<RoomDTO> roomDTOList) {
+    }
 }
