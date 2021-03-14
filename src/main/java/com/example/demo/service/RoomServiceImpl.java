@@ -4,17 +4,18 @@ import com.example.demo.DTO.converter.RoomConverter;
 import com.example.demo.DTO.modelDTO.RoomDTO;
 import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
-@Component
-public class RoomDefaultService implements RoomService {
+@Service
+public class RoomServiceImpl implements RoomService {
 
     final RoomRepository roomRepository;
     final RoomConverter converter;
 
-    public RoomDefaultService(RoomRepository roomRepository, RoomConverter converter) {
+    public RoomServiceImpl(RoomRepository roomRepository, RoomConverter converter) {
         this.roomRepository = roomRepository;
         this.converter = converter;
     }
@@ -42,13 +43,12 @@ public class RoomDefaultService implements RoomService {
     }
 
     @Override
-    public List<RoomEntity> numbers(int number) {
-        return (List<RoomEntity>) roomRepository.findByRoomNumber(number);
+    public RoomEntity numbers(int number) {
+        return roomRepository.findByNumber(number);
     }
 
     @Override
-    public List<RoomEntity> persons(int persons) {
-        return (List<RoomEntity>) roomRepository.findByRoomPersons(persons);
+    public Iterable<RoomEntity> persons(int persons) {
+        return roomRepository.findAllByPersonsGreaterThanEqual(persons);
     }
-
 }

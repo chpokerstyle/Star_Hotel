@@ -8,4 +8,8 @@ public interface UserService {
     void deleteUser(Long id);
     UserDTO editUser(UserDTO userDTO);
     Iterable<UserEntity>userAll();
+    Iterable<UserEntity> userLastName(String lastName);
+    Iterable<UserEntity> userFirstName(String firstName);
+    UserEntity findByNumber(String number);
+    UserEntity findByEmail(String email);
 }

@@ -8,4 +8,5 @@ public interface FacilitiesService {
     void deleteFacilities(Long id);
     FacilitiesDTO editFacilities(FacilitiesDTO facilitiesDTO);
     Iterable<FacilitiesEntity>facilitiesAll();
+    Iterable<FacilitiesEntity>findByName(String name);
 }

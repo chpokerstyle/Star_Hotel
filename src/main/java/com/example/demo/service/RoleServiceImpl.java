@@ -5,14 +5,15 @@ import com.example.demo.DTO.modelDTO.RoleDTO;
 import com.example.demo.model.RoleEntity;
 import com.example.demo.reposirories.RoleRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class RoleDefaultService implements RoleService {
+@Service
+public class RoleServiceImpl implements RoleService {
 
     final RoleRepository roleRepository;
     final RoleConverter converter;
 
-    public RoleDefaultService(RoleRepository roleRepository, RoleConverter converter) {
+    public RoleServiceImpl(RoleRepository roleRepository, RoleConverter converter) {
         this.roleRepository = roleRepository;
         this.converter = converter;
     }

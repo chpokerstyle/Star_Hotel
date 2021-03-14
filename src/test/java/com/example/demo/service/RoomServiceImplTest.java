@@ -6,11 +6,11 @@ import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
 import org.junit.jupiter.api.Test;
 
-class RoomDefaultServiceTest {
+class RoomServiceImplTest {
     final RoomRepository roomRepository;
     final RoomConverter converter;
 
-    RoomDefaultServiceTest(RoomRepository roomRepository, RoomConverter converter) {
+    RoomServiceImplTest(RoomRepository roomRepository, RoomConverter converter) {
         this.roomRepository = roomRepository;
         this.converter = converter;
     }

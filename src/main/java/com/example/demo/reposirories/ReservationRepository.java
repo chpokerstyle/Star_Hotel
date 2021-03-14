@@ -8,6 +8,4 @@ import java.util.Date;
 public interface ReservationRepository extends CrudRepository<ReservationEntity, Long> {
     ReservationEntity findByCheckFrom(Date checkFrom);
     ReservationEntity findByCheckTo(Date checkTo);
-
-    //Timestamp findByCheckFrom();
 }

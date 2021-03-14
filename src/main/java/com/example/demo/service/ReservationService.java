@@ -8,6 +8,10 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReservationService {
-     public boolean isExistsReservation(List<ReservationEntity> reservationEntityList, Date dateFrom, Date dateTo);
-    public boolean checkAvailabilityForBooking(int roomNumber, Date dateFrom, Date dateTo);
+    boolean isExistsReservation(List<ReservationEntity> reservationEntityList, Date dateFrom, Date dateTo);
+    boolean checkAvailabilityForBooking(int roomNumber, Date dateFrom, Date dateTo);
+    ReservationDTO createReservation(ReservationDTO reservationDTO);
+    ReservationDTO editReservation(ReservationDTO reservationDTO);
+    void deleteReservation(Long id);
+    Iterable<ReservationEntity>reservationAll();
 }

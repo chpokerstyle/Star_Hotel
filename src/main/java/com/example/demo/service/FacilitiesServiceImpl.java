@@ -4,16 +4,16 @@ import com.example.demo.DTO.converter.FacilitiesConvert;
 import com.example.demo.DTO.modelDTO.FacilitiesDTO;
 import com.example.demo.model.FacilitiesEntity;
 import com.example.demo.reposirories.FacilitiesRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-public class FacilitiesDefaultService implements FacilitiesService {
+@Service
+public class FacilitiesServiceImpl implements FacilitiesService {
 
     final FacilitiesRepository facilitiesRepository;
     final FacilitiesConvert facilitiesConvert;
 
 
-    public FacilitiesDefaultService(FacilitiesRepository facilitiesRepository, FacilitiesConvert facilitiesConvert) {
+    public FacilitiesServiceImpl(FacilitiesRepository facilitiesRepository, FacilitiesConvert facilitiesConvert) {
         this.facilitiesRepository = facilitiesRepository;
         this.facilitiesConvert = facilitiesConvert;
 
@@ -43,5 +43,10 @@ public class FacilitiesDefaultService implements FacilitiesService {
     @Override
     public Iterable<FacilitiesEntity> facilitiesAll() {
        return facilitiesRepository.findAll();
+    }
+
+    @Override
+    public Iterable<FacilitiesEntity> findByName(String name) {
+        return facilitiesRepository.findByName(name);
     }
 }

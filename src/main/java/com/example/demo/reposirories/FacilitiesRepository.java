@@ -3,7 +3,9 @@ package com.example.demo.reposirories;
 import com.example.demo.model.FacilitiesEntity;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface FacilitiesRepository extends CrudRepository<FacilitiesEntity, Long> {
-    public FacilitiesEntity findByName(String name);
-    public void deleteById(Long id);
+    List<FacilitiesEntity> findByName(String name);
+    void deleteById(Long id);
 }

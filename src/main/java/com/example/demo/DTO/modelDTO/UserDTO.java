@@ -1,5 +1,8 @@
 package com.example.demo.DTO.modelDTO;
 
+import lombok.Data;
+
+@Data
 public class UserDTO {
     Long id;
     String firstName;
