@@ -6,8 +6,8 @@ import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Set;
+import java.util.ArrayList;
+
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -40,6 +40,11 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public Iterable<RoomEntity> roomAll() {
         return roomRepository.findAll();
+    }
+
+    @Override
+    public ArrayList<RoomEntity> roomAllSorting() {
+        return (ArrayList<RoomEntity>) roomRepository.findAll();
     }
 
     @Override
