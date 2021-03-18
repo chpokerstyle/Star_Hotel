@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.DTO.modelDTO.RoomDTO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "facilities")
 @Data
-public class FacilitiesEntity {
+public class FacilitiesEntity<T> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -21,4 +22,7 @@ public class FacilitiesEntity {
                     inverseJoinColumns = @JoinColumn(name = "room_id")
             )
     List<RoomEntity>roomEntityList;
+
+    public void setRoomEntityList(List<RoomDTO> roomDTOList) {
+    }
 }
