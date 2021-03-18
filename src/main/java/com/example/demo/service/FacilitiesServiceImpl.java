@@ -42,7 +42,7 @@ public class FacilitiesServiceImpl implements FacilitiesService {
 
     @Override
     public Iterable<FacilitiesEntity> facilitiesAll() {
-       return facilitiesRepository.findAll();
+        return facilitiesRepository.findAll();
     }
 
     @Override

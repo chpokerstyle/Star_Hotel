@@ -3,9 +3,7 @@ package com.example.demo.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "room")

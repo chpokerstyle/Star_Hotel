@@ -6,7 +6,7 @@ import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 @Service
@@ -42,18 +42,15 @@ public class RoomServiceImpl implements RoomService {
         return roomRepository.findAll();
     }
 
-    @Override
-    public ArrayList<RoomEntity> roomAllSorting() {
-        return (ArrayList<RoomEntity>) roomRepository.findAll();
-    }
 
     @Override
-    public RoomEntity numbers(int number) {
+    public RoomEntity findByNumber(int number) {
         return roomRepository.findByNumber(number);
     }
 
+
     @Override
-    public Iterable<RoomEntity> persons(int persons) {
+    public List<RoomEntity> findAllSortingByPersons(int persons) {
         return roomRepository.findAllByPersonsGreaterThanEqual(persons);
     }
 }

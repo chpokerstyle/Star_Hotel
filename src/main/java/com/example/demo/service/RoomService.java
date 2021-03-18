@@ -3,7 +3,7 @@ package com.example.demo.service;
 import com.example.demo.DTO.modelDTO.RoomDTO;
 import com.example.demo.model.RoomEntity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 
 public interface RoomService {
@@ -11,8 +11,6 @@ public interface RoomService {
     void deleteRoom(Long id);
     RoomDTO editRoom(RoomDTO roomDTO);
     Iterable<RoomEntity>roomAll();
-    ArrayList<RoomEntity>roomAllSorting();
-    RoomEntity numbers(int number);
-    Iterable<RoomEntity> persons(int persons);
-
+    RoomEntity findByNumber(int numbers);
+    List<RoomEntity> findAllSortingByPersons(int persons);
 }
