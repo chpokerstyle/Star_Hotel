@@ -4,7 +4,10 @@ import com.example.demo.DTO.converter.UserConverter;
 import com.example.demo.DTO.modelDTO.UserDTO;
 import com.example.demo.model.UserEntity;
 import com.example.demo.reposirories.UserRepository;
+import com.example.demo.service.interfaces.UserService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
     final UserRepository userRepository;
     final UserConverter converter;
@@ -38,12 +41,12 @@ public class UserServiceImpl implements UserService {
         return userRepository.findAll();
     }
     @Override
-    public Iterable<UserEntity> userFirstName(String firstName) {
+    public Iterable<UserEntity> findByFirstName(String firstName) {
         return userRepository.findByFirstName(firstName);
     }
 
     @Override
-    public Iterable<UserEntity> userLastName(String lastName) {
+    public Iterable<UserEntity> findByLastName(String lastName) {
         return userRepository.findByLastName(lastName);
     }
 

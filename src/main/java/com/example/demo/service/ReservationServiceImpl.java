@@ -6,8 +6,7 @@ import com.example.demo.model.ReservationEntity;
 import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.ReservationRepository;
 import com.example.demo.reposirories.RoomRepository;
-import com.example.demo.service.exceptions.ReservationExceptions;
-import org.springframework.stereotype.Component;
+import com.example.demo.service.interfaces.ReservationService;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;

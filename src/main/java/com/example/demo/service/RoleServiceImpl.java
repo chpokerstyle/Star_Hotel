@@ -4,7 +4,7 @@ import com.example.demo.DTO.converter.RoleConverter;
 import com.example.demo.DTO.modelDTO.RoleDTO;
 import com.example.demo.model.RoleEntity;
 import com.example.demo.reposirories.RoleRepository;
-import org.springframework.stereotype.Component;
+import com.example.demo.service.interfaces.RoleService;
 import org.springframework.stereotype.Service;
 
 @Service

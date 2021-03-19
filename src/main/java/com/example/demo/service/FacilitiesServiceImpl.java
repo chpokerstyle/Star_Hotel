@@ -4,6 +4,7 @@ import com.example.demo.DTO.converter.FacilitiesConvert;
 import com.example.demo.DTO.modelDTO.FacilitiesDTO;
 import com.example.demo.model.FacilitiesEntity;
 import com.example.demo.reposirories.FacilitiesRepository;
+import com.example.demo.service.interfaces.FacilitiesService;
 import org.springframework.stereotype.Service;
 
 @Service

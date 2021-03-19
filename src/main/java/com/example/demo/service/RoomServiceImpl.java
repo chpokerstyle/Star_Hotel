@@ -4,6 +4,7 @@ import com.example.demo.DTO.converter.RoomConverter;
 import com.example.demo.DTO.modelDTO.RoomDTO;
 import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
+import com.example.demo.service.interfaces.RoomService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,6 +47,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public RoomEntity findByNumber(int number) {
         return roomRepository.findByNumber(number);
+
     }
 
 
