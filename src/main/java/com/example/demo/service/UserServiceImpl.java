@@ -1,62 +1,73 @@
 package com.example.demo.service;
 
-import com.example.demo.DTO.converter.UserConverter;
-import com.example.demo.DTO.modelDTO.UserDTO;
+import com.example.demo.DTO.UserDTO;
+import com.example.demo.mappers.UserMapper;
 import com.example.demo.model.UserEntity;
 import com.example.demo.reposirories.UserRepository;
 import com.example.demo.service.interfaces.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserServiceImpl implements UserService {
     final UserRepository userRepository;
-    final UserConverter converter;
 
-
-    public UserServiceImpl(UserRepository userRepository, UserConverter converter) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.converter = converter;
     }
 
     @Override
-    public UserDTO createUser(UserDTO userDTO) {
-        UserEntity save = userRepository.save(converter.toUserEntity(userDTO));
-        return converter.toUserDTO(save);
+    public UserDTO create(UserDTO userDTO) {
+        UserEntity save = userRepository.save(UserMapper.INSTANCE.toEntity(userDTO));
+        return UserMapper.INSTANCE.toDTO(save);
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void delete(Long id) {
         userRepository.deleteById(id);
 
     }
 
     @Override
-    public UserDTO editUser(UserDTO userDTO) {
-        UserEntity edit = userRepository.save(converter.toUserEntity(userDTO));
-        return converter.toUserDTO(edit);
+    public UserDTO edit(UserDTO userDTO) {
+        UserEntity edit = userRepository.save(UserMapper.INSTANCE.toEntity(userDTO));
+        return UserMapper.INSTANCE.toDTO(edit);
     }
 
     @Override
-    public Iterable<UserEntity> userAll() {
-        return userRepository.findAll();
+    public List<UserDTO> getAll() {
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
     @Override
-    public Iterable<UserEntity> findByFirstName(String firstName) {
-        return userRepository.findByFirstName(firstName);
-    }
-
-    @Override
-    public Iterable<UserEntity> findByLastName(String lastName) {
-        return userRepository.findByLastName(lastName);
-    }
-
-    @Override
-    public UserEntity findByNumber(String number) {
-        return userRepository.findByNumber(number);
+    public List<UserDTO> findByFirstName(String firstName) {
+        return userRepository.findByFirstName(firstName)
+                .stream()
+                .map(UserMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public UserEntity findByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public List<UserDTO> findByLastName(String lastName) {
+        return userRepository.findByLastName(lastName)
+                .stream()
+                .map(UserMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public UserDTO findByNumber(String number) {
+        UserEntity entity = userRepository.findByNumber(number);
+        return UserMapper.INSTANCE.toDTO(entity);
+    }
+
+    @Override
+    public UserDTO findByEmail(String email) {
+        UserEntity entity = userRepository.findByEmail(email);
+        return UserMapper.INSTANCE.toDTO(entity);
     }
 }

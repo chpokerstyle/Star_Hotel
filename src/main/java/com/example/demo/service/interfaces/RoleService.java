@@ -1,11 +1,12 @@
 package com.example.demo.service.interfaces;
 
-import com.example.demo.DTO.modelDTO.RoleDTO;
-import com.example.demo.model.RoleEntity;
+import com.example.demo.DTO.RoleDTO;
+
+import java.util.List;
 
 public interface RoleService {
-    RoleDTO createRole(RoleDTO roleDTO);
-    void deleteRole(Long id);
+    RoleDTO create(RoleDTO roleDTO);
+    void delete(Long id);
     RoleDTO edit(RoleDTO roleDTO);
-    Iterable<RoleEntity>roleAll();
+    List<RoleDTO> getAll();
 }

@@ -1,13 +1,13 @@
 package com.example.demo.rest;
 
-import com.example.demo.DTO.modelDTO.ReservationDTO;
-import com.example.demo.model.ReservationEntity;
-import com.example.demo.service.exceptions.ReservationExceptions;
+import com.example.demo.DTO.ReservationDTO;
 import com.example.demo.service.interfaces.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/facilities")
+@RequestMapping("/reservation")
 public class ReservationController {
     final ReservationService reservationService;
 
@@ -15,19 +15,19 @@ public class ReservationController {
         this.reservationService = reservationService;
     }
     @PostMapping("/create")
-    public ReservationDTO createReservation(ReservationDTO reservationDTO) {
-        return reservationService.createReservation(reservationDTO);
+    public ReservationDTO create(@RequestBody ReservationDTO reservationDTO) {
+        return reservationService.create(reservationDTO);
     }
     @PutMapping("/edit")
-    public ReservationDTO editReservation(ReservationDTO reservationDTO){
-        return reservationService.editReservation(reservationDTO);
+    public ReservationDTO edit(@RequestBody ReservationDTO reservationDTO){
+        return reservationService.edit(reservationDTO);
     }
     @DeleteMapping("/delete")
-    public void deleteReservation(@RequestParam(value = "id") Long id){
-        reservationService.deleteReservation(id);
+    public void delete(@RequestParam(value = "id") Long id){
+        reservationService.delete(id);
     }
     @GetMapping("/all")
-    public Iterable<ReservationEntity>reservationAll(){
-        return reservationService.reservationAll();
+    public List<ReservationDTO> getAll(){
+        return reservationService.getAll();
     }
 }

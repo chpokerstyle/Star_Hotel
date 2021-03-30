@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import com.example.demo.DTO.modelDTO.RoomDTO;
+import com.example.demo.DTO.RoomDTO;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "facilities")
 @Data
-public class FacilitiesEntity<T> {
+public class FacilitiesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -23,6 +23,4 @@ public class FacilitiesEntity<T> {
             )
     List<RoomEntity>roomEntityList;
 
-    public void setRoomEntityList(List<RoomDTO> roomDTOList) {
-    }
 }

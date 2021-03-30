@@ -1,18 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.DTO.converter.RoomConverter;
-import com.example.demo.DTO.modelDTO.RoomDTO;
-import com.example.demo.model.RoomEntity;
+import com.example.demo.DTO.RoomDTO;
 import com.example.demo.reposirories.RoomRepository;
 import org.junit.jupiter.api.Test;
 
 class RoomServiceImplTest {
     final RoomRepository roomRepository;
-    final RoomConverter converter;
 
-    RoomServiceImplTest(RoomRepository roomRepository, RoomConverter converter) {
+    RoomServiceImplTest(RoomRepository roomRepository) {
         this.roomRepository = roomRepository;
-        this.converter = converter;
     }
 
     @Test

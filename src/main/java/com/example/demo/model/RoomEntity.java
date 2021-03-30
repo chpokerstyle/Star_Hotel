@@ -16,7 +16,7 @@ public class RoomEntity {
     int number;
     int persons;
 
-    @OneToMany(mappedBy = "roomEntity", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     public List<ReservationEntity> reservationEntityList;
 
 

@@ -1,16 +1,15 @@
 package com.example.demo.service.interfaces;
 
-import com.example.demo.DTO.modelDTO.RoomDTO;
-import com.example.demo.model.RoomEntity;
+import com.example.demo.DTO.RoomDTO;
 
 import java.util.List;
 
 
 public interface RoomService {
-    RoomDTO createRoom(RoomDTO roomDTO);
-    void deleteRoom(Long id);
-    RoomDTO editRoom(RoomDTO roomDTO);
-    Iterable<RoomEntity>roomAll();
-    RoomEntity findByNumber(int numbers);
-    List<RoomEntity> findAllSortingByPersons(int persons);
+    RoomDTO create(RoomDTO roomDTO);
+    void delete(Long id);
+    RoomDTO edit(RoomDTO roomDTO);
+    List<RoomDTO> getAll();
+    RoomDTO findByNumber(int numbers);
+    List<RoomDTO> findAllSortingByPersons(int persons);
 }

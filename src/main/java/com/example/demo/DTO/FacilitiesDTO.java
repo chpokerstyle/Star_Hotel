@@ -1,4 +1,4 @@
-package com.example.demo.DTO.modelDTO;
+package com.example.demo.DTO;
 
 import com.example.demo.model.RoomEntity;
 import lombok.Data;
@@ -9,8 +9,8 @@ import java.util.List;
 public class FacilitiesDTO {
     Long id;
     String name;
-    List<RoomDTO>roomDTOList;
+  //  List<RoomDTO>roomDTOList;
 
-    public void setRoomDTOList(List<RoomEntity> roomEntityList) {
-    }
+  // public void setRoomDTOList(List<RoomEntity> roomEntityList) {
+    //}
 }

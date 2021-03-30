@@ -18,7 +18,7 @@ public class ReservationEntity {
     int persons;
 
     @ManyToOne(targetEntity = RoomEntity.class, fetch = FetchType.LAZY)
-    RoomEntity roomEntity;
+    RoomEntity room;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     UserEntity userEntity;

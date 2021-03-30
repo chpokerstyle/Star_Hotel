@@ -1,4 +1,4 @@
-package com.example.demo.DTO.modelDTO;
+package com.example.demo.DTO;
 
 import com.example.demo.model.RoomEntity;
 import com.example.demo.model.UserEntity;
@@ -12,6 +12,6 @@ public class ReservationDTO {
     Date checkFrom;
     Date checkTo;
     int persons;
-    RoomEntity roomEntity;
-    UserEntity userEntity;
+   // RoomEntity room;
+    //UserEntity userEntity;
 }

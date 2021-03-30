@@ -1,53 +1,56 @@
 package com.example.demo.service;
 
-import com.example.demo.DTO.converter.FacilitiesConvert;
-import com.example.demo.DTO.modelDTO.FacilitiesDTO;
+import com.example.demo.DTO.FacilitiesDTO;
+import com.example.demo.mappers.FacilitiesMapper;
 import com.example.demo.model.FacilitiesEntity;
 import com.example.demo.reposirories.FacilitiesRepository;
 import com.example.demo.service.interfaces.FacilitiesService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class FacilitiesServiceImpl implements FacilitiesService {
 
     final FacilitiesRepository facilitiesRepository;
-    final FacilitiesConvert facilitiesConvert;
 
-
-    public FacilitiesServiceImpl(FacilitiesRepository facilitiesRepository, FacilitiesConvert facilitiesConvert) {
+    public FacilitiesServiceImpl(FacilitiesRepository facilitiesRepository) {
         this.facilitiesRepository = facilitiesRepository;
-        this.facilitiesConvert = facilitiesConvert;
-
     }
 
     @Override
-    public FacilitiesDTO createFacilities(FacilitiesDTO facilitiesDTO) {
+    public FacilitiesDTO create(FacilitiesDTO facilitiesDTO) {
 
-        FacilitiesEntity saveFacilities = facilitiesRepository.save(facilitiesConvert.toFacilitiesEntity(facilitiesDTO));
-
-        return facilitiesConvert.toFacilitiesDTO(saveFacilities);
+        FacilitiesEntity saveFacilities = facilitiesRepository.save(FacilitiesMapper.INSTANCE.toEntity(facilitiesDTO));
+        return FacilitiesMapper.INSTANCE.toDTO(saveFacilities);
     }
 
     @Override
-    public void deleteFacilities(Long id) {
+    public void delete(Long id) {
     facilitiesRepository.deleteById(id);
     }
 
     @Override
-    public FacilitiesDTO editFacilities(FacilitiesDTO facilitiesDTO) {
+    public FacilitiesDTO edit(FacilitiesDTO facilitiesDTO) {
 
-        FacilitiesEntity saveFacilities = facilitiesRepository.save(facilitiesConvert.toFacilitiesEntity(facilitiesDTO));
-
-        return facilitiesConvert.toFacilitiesDTO(saveFacilities);
+        FacilitiesEntity save = facilitiesRepository.save(FacilitiesMapper.INSTANCE.toEntity(facilitiesDTO));
+        return FacilitiesMapper.INSTANCE.toDTO(save);
     }
 
     @Override
-    public Iterable<FacilitiesEntity> facilitiesAll() {
-        return facilitiesRepository.findAll();
+    public List<FacilitiesDTO> getAll() {
+        return facilitiesRepository.findAll()
+                .stream()
+                .map(FacilitiesMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Iterable<FacilitiesEntity> findByName(String name) {
-        return facilitiesRepository.findByName(name);
+    public List<FacilitiesDTO> findByName(String name) {
+
+        return facilitiesRepository.findByName(name).stream()
+                .map(FacilitiesMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
 }
