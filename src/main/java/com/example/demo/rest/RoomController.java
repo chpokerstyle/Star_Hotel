@@ -1,7 +1,7 @@
 package com.example.demo.rest;
 
 import com.example.demo.DTO.RoomDTO;
-import com.example.demo.service.interfaces.RoomService;
+import com.example.demo.service.RoomServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,39 +10,39 @@ import java.util.List;
 @RequestMapping("/room")
 public class RoomController {
 
-    final RoomService roomService;
+    final RoomServiceImpl service;
 
-    public RoomController(RoomService roomService) {
-        this.roomService = roomService;
+    public RoomController(RoomServiceImpl service) {
+        this.service = service;
     }
 
     @PostMapping("/create")
     public RoomDTO create(@RequestBody RoomDTO roomDTO){
-        return roomService.create(roomDTO);
+        return service.create(roomDTO);
     }
 
     @PutMapping("/edit")
     public RoomDTO edit(@RequestBody RoomDTO roomDTO){
-        return roomService.edit(roomDTO);
+        return service.edit(roomDTO);
     }
 
-    @DeleteMapping("/delete")
-    public void delete(@RequestParam(value = "id") Long id){
-        roomService.delete(id);
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id){
+        service.delete(id);
     }
 
     @GetMapping("/all")
     public List<RoomDTO>roomAll(){
-        return roomService.getAll();
+        return service.getAll();
     }
 
-    @GetMapping("/find/room")
-    RoomDTO findByNumber(@RequestParam(value = "/number") int numbers){
-        return roomService.findByNumber(numbers);
+    @GetMapping("/find/room/{numbers}")
+    RoomDTO findByNumber(@PathVariable int numbers){
+        return service.findByNumber(numbers);
     }
 
-    @GetMapping("/sorting")
-    List<RoomDTO> findAllSortingByPersons(@RequestParam(value = "/persons") int persons){
-        return roomService.findAllSortingByPersons(persons);
+    @GetMapping("/sorting/{persons}")
+    List<RoomDTO> findAllSortingByPersons(@PathVariable int persons){
+        return service.findAllSortingByPersons(persons);
     }
 }

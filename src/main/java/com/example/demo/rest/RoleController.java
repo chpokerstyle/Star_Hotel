@@ -1,7 +1,8 @@
 package com.example.demo.rest;
 
 import com.example.demo.DTO.RoleDTO;
-import com.example.demo.service.interfaces.RoleService;
+import com.example.demo.model.RoleEntity;
+import com.example.demo.service.RoleServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,26 +10,25 @@ import java.util.List;
 @RestController
 @RequestMapping("/role")
 public class RoleController {
-    final RoleService roleService;
+    final RoleServiceImpl service;
 
-    public RoleController(RoleService roleService) {
-        this.roleService = roleService;
+    public RoleController(RoleServiceImpl service) {
+        this.service = service;
     }
     @PostMapping("/create")
     public RoleDTO create(@RequestBody RoleDTO roleDTO){
-        return roleService.create(roleDTO);
+        return service.create(roleDTO);
     }
     @PutMapping("/edit")
     public RoleDTO edit(@RequestBody RoleDTO roleDTO){
-        return roleService.edit(roleDTO);
+        return service.edit(roleDTO);
     }
     @GetMapping("/all")
-    public List<RoleDTO> roleAll(){
-        return roleService.getAll();
-
+    public List<RoleDTO> getAll(){
+        return service.getAll();
     }
-    @DeleteMapping("/delete")
-    public void delete(@RequestParam(value = "id") Long id){
-        roleService.delete(id);
+    @DeleteMapping("/delete{id}")
+    public void delete(@PathVariable Long id){
+        service.delete(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.service.interfaces;
 
 import com.example.demo.DTO.RoleDTO;
+import com.example.demo.model.RoleEntity;
 
 import java.util.List;
 

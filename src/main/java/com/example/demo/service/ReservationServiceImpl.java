@@ -3,11 +3,13 @@ package com.example.demo.service;
 import com.example.demo.DTO.ReservationDTO;
 import com.example.demo.mappers.ReservationMapper;
 import com.example.demo.model.ReservationEntity;
+import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.ReservationRepository;
 import com.example.demo.reposirories.RoomRepository;
 import com.example.demo.service.interfaces.ReservationService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,17 +52,17 @@ public class ReservationServiceImpl implements ReservationService {
                 .collect(Collectors.toList());
     }
 
-//    @Override
-//    public boolean isExistsReservation(List<ReservationEntity> reservationEntity, Date dateFrom, Date dateTo) {
+
+//    public boolean isExistsReservation(List<ReservationEntity> reservationEntityList, Date dateFrom, Date dateTo) {
 //
-//        return reservationEntity.stream()
-//                .anyMatch(it ->
-//                dateFrom.before(it.getCheckFrom()) && it.getCheckTo().before(dateTo));
+//        return reservationEntityList
+//                .stream()
+//                .anyMatch(it -> dateFrom.before(it.getCheckFrom()) && it.getCheckTo().before(dateTo));
 //    }
 //
-//    @Override
 //    public boolean checkAvailabilityForBooking(int number, Date dateFrom, Date dateTo) {
 //        RoomEntity room = roomRepository.findByNumber(number);
+//
 //        return !isExistsReservation(room.reservationEntityList, dateFrom, dateTo);
 //    }
 }

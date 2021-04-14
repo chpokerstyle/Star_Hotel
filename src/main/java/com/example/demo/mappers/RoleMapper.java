@@ -4,7 +4,9 @@ import com.example.demo.DTO.RoleDTO;
 import com.example.demo.model.RoleEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.stereotype.Component;
 
+@Component
 @Mapper
 public interface RoleMapper {
 

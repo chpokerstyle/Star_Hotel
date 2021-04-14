@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.DTO.ReservationDTO;
 import lombok.Data;
 
 import javax.persistence.*;

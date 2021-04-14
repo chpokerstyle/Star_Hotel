@@ -8,5 +8,5 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<RoomEntity, Long> {
 
     List<RoomEntity> findAllByPersonsGreaterThanEqual(int persons);
-        RoomEntity findByNumber(int number);
+    RoomEntity findByNumber(int number);
 }

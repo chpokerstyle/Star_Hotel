@@ -1,16 +1,13 @@
 package com.example.demo.DTO;
-
-import com.example.demo.model.RoomEntity;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-import java.util.List;
 
 @Data
 public class FacilitiesDTO {
+    @JsonProperty
     Long id;
+    @JsonProperty
     String name;
-  //  List<RoomDTO>roomDTOList;
 
-  // public void setRoomDTOList(List<RoomEntity> roomEntityList) {
-    //}
 }

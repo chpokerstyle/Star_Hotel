@@ -5,6 +5,7 @@ import com.example.demo.mappers.RoomMapper;
 import com.example.demo.model.RoomEntity;
 import com.example.demo.reposirories.RoomRepository;
 import com.example.demo.service.interfaces.RoomService;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,6 +59,7 @@ public class RoomServiceImpl implements RoomService {
 
         return roomRepository.findAllByPersonsGreaterThanEqual(persons)
                 .stream()
-                .map(RoomMapper.INSTANCE::toDTO).collect(Collectors.toList());
+                .map(RoomMapper.INSTANCE::toDTO)
+                .collect(Collectors.toList());
     }
 }

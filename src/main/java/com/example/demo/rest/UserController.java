@@ -1,7 +1,7 @@
 package com.example.demo.rest;
 
 import com.example.demo.DTO.UserDTO;
-import com.example.demo.service.interfaces.UserService;
+import com.example.demo.service.UserServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,41 +10,41 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-    final UserService userService;
+    final UserServiceImpl service;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserServiceImpl service) {
+        this.service = service;
     }
     @PostMapping("/create")
     public UserDTO create(@RequestBody UserDTO userDTO){
-        return userService.create(userDTO);
+        return service.create(userDTO);
     }
-    @DeleteMapping("/delete")
-    public void delete(@RequestParam(value = "id") Long id){
-        userService.delete(id);
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable Long id){
+        service.delete(id);
     }
     @PutMapping("/edit")
     public UserDTO edit(@RequestBody UserDTO userDTO){
-        return userService.edit(userDTO);
+        return service.edit(userDTO);
     }
     @GetMapping("/all")
     public List<UserDTO> getAll(){
-        return userService.getAll();
+        return service.getAll();
     }
-    @GetMapping("/find/name")
-    public List<UserDTO> findByLastName(@RequestParam(value = "last_name") String lastName){
-        return userService.findByLastName(lastName);
+    @GetMapping("/find/{lastName}")
+    public List<UserDTO> findByLastName(@PathVariable String lastName){
+        return service.findByLastName(lastName);
     }
-    @GetMapping("/find/family")
-    public List<UserDTO>findByFirstName(@RequestParam(value = "first_name") String firstName){
-        return userService.findByFirstName(firstName);
+    @GetMapping("/find/{firstName")
+    public List<UserDTO>findByFirstName(@PathVariable String firstName){
+        return service.findByFirstName(firstName);
     }
-    @GetMapping("/find/number")
-    public UserDTO findByNumber(@RequestParam(value = "number") String number){
-        return userService.findByNumber(number);
+    @GetMapping("/find/{number}")
+    public UserDTO findByNumber(@PathVariable String number){
+        return service.findByNumber(number);
     }
-    @GetMapping("find/email")
-    public UserDTO findByEmail(@RequestParam(value = "email") String email){
-        return userService.findByEmail(email);
+    @GetMapping("find/{email}")
+    public UserDTO findByEmail(@PathVariable String email){
+        return service.findByEmail(email);
     }
 }

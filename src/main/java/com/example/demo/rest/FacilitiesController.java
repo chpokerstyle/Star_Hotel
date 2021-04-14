@@ -1,7 +1,7 @@
 package com.example.demo.rest;
 
 import com.example.demo.DTO.FacilitiesDTO;
-import com.example.demo.service.interfaces.FacilitiesService;
+import com.example.demo.service.FacilitiesServiceImpl;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,30 +10,30 @@ import java.util.List;
 @RequestMapping("/facilities")
 public class FacilitiesController {
 
-    final FacilitiesService facilitiesService;
+    final FacilitiesServiceImpl service;
 
-    public FacilitiesController(FacilitiesService facilitiesService) {
-        this.facilitiesService = facilitiesService;
+    public FacilitiesController(FacilitiesServiceImpl service) {
+        this.service = service;
     }
 
     @PostMapping("/create")
     public FacilitiesDTO create(@RequestBody FacilitiesDTO facilitiesDTO){
-       return facilitiesService.create(facilitiesDTO);
+       return service.create(facilitiesDTO);
     }
     @PutMapping("/edit")
     public FacilitiesDTO edit(@RequestBody FacilitiesDTO facilitiesDTO){
-        return facilitiesService.edit(facilitiesDTO);
+        return service.edit(facilitiesDTO);
     }
     @GetMapping("/all")
     public List<FacilitiesDTO> getAll(){
-        return facilitiesService.getAll();
+        return service.getAll();
     }
-    @DeleteMapping("/delete/")
-    void delete (@RequestParam(value = "id") Long id){
-        facilitiesService.delete(id);
+    @DeleteMapping("/delete/{id}")
+    void delete (@PathVariable Long id){
+        service.delete(id);
     }
     @GetMapping("/find")
     public List<FacilitiesDTO>findByName(@RequestParam(value = "name") String name){
-        return facilitiesService.findByName(name);
+        return service.findByName(name);
     }
 }

@@ -7,7 +7,7 @@ import com.example.demo.reposirories.RoomRepository;
 import java.util.Date;
 import java.util.List;
 
-public class ReservationExceptions extends Exception {
+public class ReservationExceptions  {
 //    final RoomRepository roomRepository;
 //
 //    public ReservationExceptions(RoomRepository roomRepository) {
